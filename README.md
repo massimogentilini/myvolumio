@@ -5,20 +5,20 @@ Instructions about how to install and configure the PeppyMeter plugin with Volum
 First of all the suggestion is to start with a freshly installed Volumio, via factory reset or by installing it on a fresh card.
 
 For a lot of activity you'll need an SSH access to the volumio, to do so go to
-...
+```
 http://volumio.local/dev/
-...
+```
 And enable SSH access (third button from the top), you'll get no feedback but test the connection from a Windows (or Mac or Linux) command prompt by connecting to volumio:
-...
+```
 ssh volumio@volumio.local
-...
+```
 The system will ask if to trust the raspberry key and then asks for a password, that is the default:
-...
+```
 volumio
-...
+```
 
 This is the expected result:
-...
+```
 PS C:\Users\xxx> ssh volumio@volumio.local
 The authenticity of host 'volumio.local (192.168.178.123)' can't be established.
 ECDSA key fingerprint is SHA256:rGUp/DLKjdD4tV2cp0K2BRAAAWlXQeyJZHsoSK92Lbk.
@@ -41,7 +41,7 @@ Volumio Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 Welcome to Volumio for Raspberry Pi (5.10.92-v7+ armv7l)
 volumio@volumio:~$
-...
+```
 
 
 
