@@ -43,15 +43,25 @@ Welcome to Volumio for Raspberry Pi (5.10.92-v7+ armv7l)
 volumio@volumio:~$
 ```
 
+Some useful commands if you're not accustomed to Linux platform:
 
+ls: list the content of a directory
+cd: change directory, works as in a regular command
+nano: the default editor
 
-After installation the first step is to configure your Raspberry to manage the LCD screen. In a typical scenario you'll see a gibberish screen but this is due to the fact that you need to configure the raspberry paramaters to support the specific screen.
+After installation the first step is to configure your Raspberry to manage the LCD screen. In a typical scenario you'll see a gibberish screen but this is due to the fact that you need to configure the raspberry paramaters to support the specific screen. What follows are the configuration for my screem, from a brand named waveshare, a 5 inches display. This parameter are usually found in the screen manuals or in the support web site, google is your friend.
 
+The best way to include these information is editing the userconfig.txt file
 
-- /boot/userconfig.txt
+```
+sudo nano /boot/userconfig.txt
+```
+If the system asks for a supplemental password to enable sudo (a way to do operations a regular user is not allowed to do) simply use volumio again.
 
-...
-#** Add your custom config.txt options to this file, which will be preserved during updates
+Editing with nano you can simply copy and paste the correct configuration, then use CONTROL-O to write the file and CONTROL-X to quit nano. Note that nano is not the most user friendly text editor of the world, but thanks volumio team to have it included instead of the default vi editor.
+
+```
+# Add your custom config.txt options to this file, which will be preserved during updates
 #### LCD Screen
 max_usb_current=1
 hdmi_group=2
@@ -60,4 +70,11 @@ hdmi_cvt 800 480 60 6 0 0 0
 hdmi_drive=1
 max_framebuffer_height=720
 config_hdmi_boost=10
-...
+```
+After the configuration is done you can reboot your system, using the volumio web interface or via your trustly sudo commando
+```
+sudo reboot now
+```
+After rebooting the system you should see the request for the login from the volumio operating system in the LCD screen, if this is OK then the LCD screen is working, we can then move to configure Volumio to use it at its best.
+
+The first step is to install and enable the **Touch Display** from the pluging setting page of Volumio. This will install all the base software required and, after installing and enabling it (and another reboot) the LCD should display the same web user interface you see on the web browser.
