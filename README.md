@@ -45,9 +45,11 @@ volumio@volumio:~$
 
 Some useful commands if you're not accustomed to Linux platform:
 
+```
 ls: list the content of a directory
 cd: change directory, works as in a regular command
 nano: the default editor
+```
 
 After installation the first step is to configure your Raspberry to manage the LCD screen. In a typical scenario you'll see a gibberish screen but this is due to the fact that you need to configure the raspberry paramaters to support the specific screen. What follows are the configuration for my screem, from a brand named waveshare, a 5 inches display. This parameter are usually found in the screen manuals or in the support web site, google is your friend.
 
