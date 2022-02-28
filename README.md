@@ -1,6 +1,8 @@
-# myvolumio
+# How to install a vu meter pluging on Volumio using PeppyMeter
 
 Instructions about how to install and configure the PeppyMeter plugin with Volumio on a Raspberry.
+
+** Note: after these instructions the regular update procedure of Volumio can stop working. So, for every update, you'll have to re-configure your Volumio from scratch.**
 
 First of all the suggestion is to start with a freshly installed Volumio, via factory reset or by installing it on a fresh card.
 
@@ -133,3 +135,4 @@ while true; do
 done
 ```
 
+To get the better performance I suggest also to enable the **Music Service Shield** that you can find (wrongly) classified under the Music Services plugin category. This is a really nice and useful plugin that allow your Raspberry to allocate some of its cores only to music reproduction and so have the better performance for music reprodction also if Volumio is busy performing other tasks, like indexing music or... displaying vumeters!
