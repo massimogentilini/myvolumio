@@ -80,3 +80,56 @@ sudo reboot now
 After rebooting the system you should see the request for the login from the volumio operating system in the LCD screen, if this is OK then the LCD screen is working, we can then move to configure Volumio to use it at its best.
 
 The first step is to install and enable the **Touch Display** from the pluging setting page of Volumio. This will install all the base software required and, after installing and enabling it (and another reboot) the LCD should display the same web user interface you see on the web browser.
+
+*If, at this point of the configuration, you do not have the LCD screen displaying the Volumio web UI it's useless to proceed forward.*
+
+After that you need to install the peppymeter plugin, unluckily this has not been published in the regular Volumio plugin store (but let's hope it will be, sooner or later), so you need to install it manually using SSH.
+
+You need to install the peppy_screensaver plugin, to do so login to Volumio via SSH and run the following commands:
+```
+mkdir peppy
+wget https://github.com/2aCD-creator/volumio-plugins/raw/gh-pages/plugins/volumio/armhf/miscellanea/peppy_screensaver/peppy_screensaver.zip
+miniunzip peppy_screensaver.zip -d ./peppy
+cd peppy
+volumio plugin install
+```
+To achieve better performance and a snappier vu meters I suggest also to edit the file named /opt/volumiokiosk.sh to change some parameters of the startup of chromium interface:
+
+```
+sudo nano /opt/volumiokiosk.sh
+```
+
+The changes in the startup screen are the following (suggestion is to comment with a # all the existing lines from "while true" to "done" and then copy this ones.
+
+```
+while true; do
+  /usr/bin/chromium-browser \
+    --simulate-outdated-no-au='Tue, 31 Dec 2099 23:59:59 GMT' \
+    --force-device-scale-factor=1 \
+    --disable-pinch \
+    --kiosk \
+    --no-first-run \
+    --noerrdialogs \
+    --disable-3d-apis \
+    --disable-breakpad \
+    --disable-crash-reporter \
+    --disable-infobars \
+    --disable-session-crashed-bubble \
+    --disable-translate \
+    --disable-smooth-scrolling \
+    --disable-gpu-compositing \
+    --enable-experimental-canvas-features \
+    --enable-scroll-prediction \
+    --disable-quic \
+    --max-tiles-for-interest-area=512 \
+    --num-raster-threads=4 \
+    --enable-low-res-tiling \
+    --enable-native-gpu-memory-buffers \
+    --enable-gpu-rasterization \
+    --enable-zero-copy \
+    --use-gl=egl \
+    --disk-cache-dir='/tmp' \
+    --user-data-dir='/data/volumiokiosk'     http://localhost:3000
+done
+```
+
